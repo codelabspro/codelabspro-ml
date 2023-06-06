@@ -28,35 +28,45 @@ If the above command gives an error, you should install XCode from the App Store
 ## Install Jupyter and Create Environment
 
 Next, lets install Jupyter, which is the editor you will use in this course.
-
+```
 conda install -y jupyter
+```
 We will actually launch Jupyter later.
 
 First, we deactivate the base environment.
-
+```
 conda deactivate
+```
 Next, we will install the Apple Silicon tensorflow-apple-metal.yml file that I provide. Run the following command from the same directory that contains tensorflow-apple-metal.yml.
 
+```
 conda env create -f tensorflow-apple-metal.yml -n tensorflow
+```
 ## Activating New Environment
 
 To enter this environment, you must use the following command:
 
+```
 conda activate tensorflow
+```
 ## Register your Environment
 
 The following command registers your tensorflow environment. Again, make sure you "conda activate" your new tensorflow environment.
-
+```
 python -m ipykernel install --user --name tensorflow --display-name "Python 3.10 (tensorflow)"
-Testing your Environment
+```
+
+## Testing your Environment
 
 ## Start Jupyter notebook. Use the following command.
 
 jupyter notebook
 You can now run the following code to check that you have the versions expected.
 
-In [1]:
+
 # What version of Python do you have?
+
+```
 import sys
 
 import tensorflow.keras
@@ -74,6 +84,8 @@ print(f"Pandas {pd.__version__}")
 print(f"Scikit-Learn {sk.__version__}")
 gpu = len(tf.config.list_physical_devices('GPU'))>0
 print("GPU is", "available" if gpu else "NOT AVAILABLE")
+```
+
 Python Platform: macOS-13.0.1-arm64-arm-64bit
 Tensor Flow Version: 2.11.0
 Keras Version: 2.11.0
